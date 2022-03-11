@@ -6,7 +6,7 @@ class SoftPlay {
   }
 
   enter(adults, children) {
-    if (adults >= 1) {
+    if (adults >= children) {
       this.numAdults += adults;
       this.numChildren += children;
       return true;
