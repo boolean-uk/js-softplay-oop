@@ -53,4 +53,19 @@ describe("Soft Play OOP", () => {
     expect(softPlay.leave(2,1)).toBeTrue()
     expect(softPlay.occupancy()).toEqual({adults: 0, children: 0})
   })
+
+// Extension - Max occupancy tests are below 
+
+ it("checking max occupancy of 3", function() {
+    let softPlay = new SoftPlay(3)
+    expect(softPlay.enter(2,2)).toBeFalse()
+    expect(softPlay.occupancy()).toEqual({adults: 0, children: 0})
+  })
+
+it("checking max occupancy of 3", function() {
+    let softPlay = new SoftPlay(3)
+    expect(softPlay.enter(2, 1)).toBeTrue()
+    expect(softPlay.occupancy()).toEqual({adults: 2, children: 1})
+  })
+
 })
