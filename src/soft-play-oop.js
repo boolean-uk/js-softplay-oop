@@ -6,28 +6,26 @@ class SoftPlay {
   }
 
   enter(adults, children) {
-    if (adults >= children) {
+    if (adults < children) {
+      return false;
+    } else {
       this.numAdults += adults;
       this.numChildren += children;
       return true;
-    } else {
-      return false;
     }
   }
 
   leave(adults, children) {
-    if (
-      adults >= children &&
-      adults > 0 &&
-      this.numAdults > this.numChildren &&
-      this.numAdults >= adults &&
-      this.numChildren >= children
-    ) {
+    if (adults <= 0) {
+      return false;
+    } else if (adults > this.numAdults || children > this.numChildren) {
+      return false;
+    } else if (this.numAdults - adults < this.numChildren - children) {
+      return false;
+    } else {
       this.numAdults -= adults;
       this.numChildren -= children;
       return true;
-    } else {
-      return false;
     }
   }
 
